@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  gender: MyString
+  age: 1
+  sexual_orientation: MyString
+  race: MyString
+  city: MyString
+  political_party: MyString
+  religion: MyString
+  pro_choice: false
+
+two:
+  username: MyString
+  gender: MyString
+  age: 1
+  sexual_orientation: MyString
+  race: MyString
+  city: MyString
+  political_party: MyString
+  religion: MyString
+  pro_choice: false
