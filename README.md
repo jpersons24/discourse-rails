@@ -22,3 +22,13 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+Git Branching:
+
+** git branch    -> shows current branch
+
+1. git checkout -b <branch name>   --> creates branch
+2. add and commit to branch
+3. git checkout main   --> switch back to main branch
+4. git merge <branch to merge>    --> merges selected branch to main
