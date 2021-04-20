@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails"
+require "dotenv"
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -18,6 +19,7 @@ require "rails/test_unit/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+Dotenv.load
 
 module Discourse
   class Application < Rails::Application
@@ -36,5 +38,7 @@ module Discourse
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.stream_api_key = ENV['API_KEY']
+    config.stream_api.secret = ENV['API_SECRET']
   end
 end

@@ -7,13 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# require 'stream-chat'
 
-# puts 'creating user'
-# jake = User.create(username: "jpersons", password: "123", gender: "male", age: 28)
-
-# instantiate stream client using API key and secret
-# client = StreamChat::Client.new(api_key='9tbsyvz84awf', api_secret='xvzzd4ws4tmkfexkg832mq56944vqdhndakarrmkvynvwscagmw97humdymtt2v8')
-# client.create_token(jake)
-
-puts 'success!!'
