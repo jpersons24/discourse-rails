@@ -25,6 +25,9 @@ gem 'stream-chat-ruby', '~> 2.6'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# stream chat gem
+gem 'stream-chat-ruby', '~> 2.6'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
