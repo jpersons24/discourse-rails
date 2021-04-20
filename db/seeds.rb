@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+require 'stream-chat'
+
+# instantiate stream client using API key and secret
+client = StreamChat::Client.new(api_key='9tbsyvz84awf', api_key='xvzzd4ws4tmkfexkg832mq56944vqdhndakarrmkvynvwscagmw97humdymtt2v8')
+client.create_token('jake')
+
+puts 'success!!'
