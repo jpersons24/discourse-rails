@@ -39,6 +39,6 @@ module Discourse
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.stream_api_key = ENV['API_KEY']
-    config.stream_api.secret = ENV['API_SECRET']
+    config.stream_api_secret = ENV['API_SECRET']
   end
 end
