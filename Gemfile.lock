@@ -170,6 +170,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   dotenv (~> 2.7, >= 2.7.6)
+  jwt (~> 2.2)
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)

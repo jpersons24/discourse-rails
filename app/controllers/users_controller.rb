@@ -7,6 +7,17 @@ class UsersController < ApplicationController
       render json: users
    end
 
+  #  /POST /login
+  def login
+    user = User.find_by(username: params[:username])
+
+    if user && user.authenticate(params[:password])
+      render json: { status: true, user: user, token: chat_token(user.username) }
+    else
+      render json: { status: false, message: "Incorrect username or password"}
+    end
+  end
+
    def create
       user = User.find_by(username: user_params[:username])
   
