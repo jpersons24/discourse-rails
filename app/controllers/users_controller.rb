@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     end
   end
 
+
    def create
       user = User.find_by(username: user_params[:username])
   
@@ -65,7 +66,7 @@ class UsersController < ApplicationController
     end
   
     def user_params
-      params.permit(:username, :password, :gender, :age, :sexual_orientation, :race, :city, :political_party, :religion, :pro_choice, :fav_sport, :fav_cuisine, :fav_book_genre, :fav_city, :fav_movie_genre)
+      params.permit(:username, :password, :gender, :age, :sexual_orientation, :race, :city, :political_party, :religion, :pro_choice, :fav_sport, :fav_cuisine, :fav_book_genre, :fav_city, :fav_movie_genre, :is_chatting, :previous_matches)
     end
    
 end
