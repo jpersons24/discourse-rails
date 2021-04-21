@@ -29,7 +29,7 @@ class UsersController < ApplicationController
           return
         end
   
-        render json: { status: false, message: 'Could not create an account for the user' }
+        render json: { status: false, message: 'username already taken' }
         return
       end
   
@@ -40,6 +40,13 @@ class UsersController < ApplicationController
   
       render json: { status: true, user: user, token: chat_token(user.username) }
     end
+
+    def update 
+      user = User.find(params[:id])
+
+      user.update(user_params)
+      render json: { status: true, user: user, token: chat_token(user.username) }
+    end 
   
     private
   
