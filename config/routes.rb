@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   # /login to login controller
   post "/login", to: "users#login"
   get "/users/:id", to: "users#match"
+  get '/end_chat/:id', to: 'users#end_chat'
 end

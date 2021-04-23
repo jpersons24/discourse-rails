@@ -141,6 +141,15 @@ class UsersController < ApplicationController
       found_user.update(differences: final_differences[0], interests: final_interests[0])
       render json: { status: true, user: found_user, token: chat_token(found_user.username) }
     end
+
+    def end_chat
+      user = User.find(params[:id])
+      found_user = User.find_by(username: user.previous_matches[0])
+      user.update(is_chatting: false, previous_matches: [])
+      found_user.update(is_chatting: false, previous_matches: [])
+
+      render json: { status: true, user: user, token: chat_token(user.username) }
+    end 
   
     private
   
