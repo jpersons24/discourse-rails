@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2021_04_19_194149) do
     t.string "fav_movie_genre"
     t.boolean "is_chatting"
     t.text "previous_matches", default: [], array: true
+    t.text "differences", default: [], array: true
+    t.text "interests", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

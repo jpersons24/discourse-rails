@@ -18,6 +18,9 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :fav_movie_genre
       t.boolean :is_chatting
       t.text :previous_matches, array: true, default: []
+      t.text :differences, array: true, default: []
+      t.text :interests, array: true, default: []
+
 
       t.timestamps
     end
