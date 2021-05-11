@@ -52,8 +52,8 @@ class UsersController < ApplicationController
     def match
       user = User.find(params[:id])
       found_user = nil
-      if user.previous_matches.length > 0
-        found_user = User.find_by(username: user.previous_matches[0])
+      if user.chatting_with != nil
+        found_user = User.find_by(username: user.chatting_with)
         render json: { status: true, user: found_user, token: chat_token(found_user.username) }
         return
       end
@@ -136,17 +136,25 @@ class UsersController < ApplicationController
           final_interests.push(interests_array)
         end
       end
+
       user.update(differences: final_differences[0], interests: final_interests[0])
-      found_user = User.find_by(username: collected_array[0].username)
-      found_user.update(differences: final_differences[0], interests: final_interests[0])
-      render json: { status: true, user: found_user, token: chat_token(found_user.username) }
+      
+      if collected_array.length > 0
+        found_user = User.find_by(username: collected_array[0].username)
+        found_user.update(differences: final_differences[0], interests: final_interests[0])
+        render json: { status: true, user: found_user, token: chat_token(found_user.username) }
+      else
+        render json: { status: false }
+      end
+
+
     end
 
     def end_chat
       user = User.find(params[:id])
-      found_user = User.find_by(username: user.previous_matches[0])
-      user.update(is_chatting: false, previous_matches: [])
-      found_user.update(is_chatting: false, previous_matches: [])
+      found_user = User.find_by(username: user.chatting_with)
+      user.update(is_chatting: false, chatting_with: nil)
+      found_user.update(is_chatting: false, chatting_with: nil)
 
       render json: { status: true, user: user, token: chat_token(user.username) }
     end 
@@ -168,7 +176,7 @@ class UsersController < ApplicationController
     end
   
     def user_params
-      params.permit(:username, :password, :gender, :age, :sexual_orientation, :race, :city, :political_party, :religion, :pro_choice, :fav_sport, :fav_cuisine, :fav_book_genre, :fav_city, :fav_movie_genre, :is_chatting, previous_matches: [], differences: [], interests: [])
+      params.permit(:username, :password, :gender, :age, :sexual_orientation, :race, :city, :political_party, :religion, :pro_choice, :fav_sport, :fav_cuisine, :fav_book_genre, :fav_city, :fav_movie_genre, :is_chatting, :chatting_with, previous_matches: [], differences: [], interests: [])
     end
    
 end
