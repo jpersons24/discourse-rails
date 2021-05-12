@@ -69,6 +69,8 @@ GEM
     crass (1.0.6)
     dotenv (2.7.6)
     erubi (1.10.0)
+    faker (2.15.1)
+      i18n (>= 1.6, < 2)
     faraday (1.4.1)
       faraday-excon (~> 1.1)
       faraday-net_http (~> 1.0)
@@ -170,6 +172,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   dotenv (~> 2.7, >= 2.7.6)
+  faker
   jwt (~> 2.2)
   listen (~> 3.3)
   pg (~> 1.1)

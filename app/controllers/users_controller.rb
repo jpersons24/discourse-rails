@@ -57,9 +57,13 @@ class UsersController < ApplicationController
         render json: { status: true, user: found_user, token: chat_token(found_user.username) }
         return
       end
+
+      # filter out user where is_chatting = true
       filtered_users = User.all.filter do |user_option|
         user_option.is_chatting === false
       end
+
+      # filter users where chatting = false, that are no included in previous matches array
       new_connections = filtered_users.filter do |user_option|
         !user.previous_matches.include?(user_option.username)
       end
