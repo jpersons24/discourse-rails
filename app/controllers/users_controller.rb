@@ -88,7 +88,7 @@ class UsersController < ApplicationController
           belief_counter += 1
           differences_array.push("sexual orientation")
         end
-
+ 
         if user_option.race != user.race
           belief_counter += 1
           differences_array.push("race")
@@ -134,7 +134,7 @@ class UsersController < ApplicationController
           interests_array.push("favorite movie genre")
         end
 
-        if belief_counter >= 3 && interest_counter >= 3
+        if belief_counter >= 2 && interest_counter >= 2
           collected_array.push(user_option)
           final_differences.push(differences_array)
           final_interests.push(interests_array)
