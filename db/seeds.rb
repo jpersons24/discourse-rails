@@ -103,7 +103,7 @@ choice = [
 ]
 
 
-50.times do 
+200.times do 
   User.create(
     username: Faker::Name.first_name,
     password: "123",
